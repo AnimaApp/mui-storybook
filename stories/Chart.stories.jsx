@@ -6,13 +6,13 @@ export default {
   component: Box,
 };
 
-const Template = (args) => {
+const Chart = (args) => {
   return (
-    <Box sx={{ width: "100%", maxWidth: 360 }}>
+    <Box sx={{ width: "100%", }}>
       <Grid >
           <img
             src={ChartImg}
-            style={{width:"200%", boxShadow:"5px 10px 10px #D3D3D3"}}
+            style={{width:"100%",height:"189px", boxShadow:"2px 2px 10px #D3D3D3", borderRadius:"3px"}}
           />
       </Grid>
           
@@ -20,7 +20,7 @@ const Template = (args) => {
   );
 };
 
-export const Basic = Template.bind({});
+export const Basic = Chart.bind({});
 Basic.args = {
   primary: true,
   label: "Button",
