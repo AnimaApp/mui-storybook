@@ -10,11 +10,6 @@ export default {
       type: "string",
       defaultValue: "Button"
     },
-    color: {
-      type: "select",
-      options: ['inherit', 'primary', 'secondary', 'success', 'error', 'info', 'warning'],
-      defaultValue: 'primary'
-    },
     variant: {
       type: "select",
       options: ['contained', 'outlined', 'text'],
@@ -24,10 +19,6 @@ export default {
       type: "select",
       options: ['small', 'medium', 'large'],
       defaultValue: 'medium'
-    },
-    loading: {
-      type: "boolean",
-      defaultValue: true,
     },
     loadingPosition: {
       type: "select",
@@ -42,6 +33,7 @@ export const Story = (args) => {
   return (
     <LoadingButton  
       {...other}
+      loading
       startIcon={other.loadingPosition == "start" && <Send />}
       endIcon={other.loadingPosition == "end" && <Send />}
     >
