@@ -41,8 +41,7 @@ export default {
   },
 };
 
-const Template = ({ title, isExtended, ...args }) => {
-  console.log({ title, isExtended, ...args });
+const Template = ({ title, ...args }) => {
   return (
     <Box>
       <Fab {...args}>
@@ -67,5 +66,5 @@ FabButton.args = {
   title: "Button",
   color: "primary",
   size: "large",
-  variant: "contained",
+  variant: "None",
 };
