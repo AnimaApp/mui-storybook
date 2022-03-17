@@ -39,17 +39,12 @@ export default {
       defaultValue: false,
     },
     handleChange: {
-        action: "handleChange"
-    }
+      action: "handleChange",
+    },
   },
 };
 
 const Template = ({ title, ...args }) => {
-  const [value, setValue] = React.useState(args.value);
-  const handleChange = (event, newValue) => {
-     setValue(newValue);
-  };
- 
   return (
     <Box sx={{ width: 200 }}>
       <Typography component="legend">{title}</Typography>
