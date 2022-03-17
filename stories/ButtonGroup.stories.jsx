@@ -12,7 +12,7 @@ export default {
     },
     numberOfChildren: {
       type: "select",
-      options: [2,3,4,5],
+      options: [2, 3, 4, 5],
       defaultValue: 2,
     },
     variant: {
@@ -55,7 +55,7 @@ export const Story = ({ numberOfChildren, title, splitButton, ...args }) => {
       {splitButton ? (
         <>
           <Button>{title}</Button>
-          <Button size="small" >
+          <Button size="small">
             <ArrowDropDownIcon />
           </Button>
         </>
