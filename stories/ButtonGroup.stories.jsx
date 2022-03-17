@@ -11,8 +11,9 @@ export default {
       defaultValue: "Button",
     },
     numberOfChildren: {
-      type: "number",
-      defaultValue: 3,
+      type: "select",
+      options: [2,3,4,5],
+      defaultValue: 2,
     },
     variant: {
       type: "select",
@@ -40,11 +41,6 @@ export default {
     orientation: {
       type: "select",
       options: ["vertical", "horizontal"],
-    },
-    disableElevation: {
-      type: "select",
-      options: ["None", "disableElevation"],
-      defaultValue: "None",
     },
     splitButton: {
       type: "boolean",
