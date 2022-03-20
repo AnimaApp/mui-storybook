@@ -16,39 +16,45 @@ export default {
       type: "select",
       options: [2, 3, 4, 5],
     },
-    useAlternativelabel: {
-        type: 'boolean',
-        defaultValue: false
-    }
+    alternativeLabel: {
+      type: "boolean",
+      defaultValue: false,
+    },
   },
 };
 
-const Template = ({ useAlternativelabel, steps, ...args }) => {
+const Template = ({ alternativeLabel, steps, ...args }) => {
   const altenativeLabels = [
     "Select master blaster campaign settings",
     "Create an ad group",
     "Create an ad",
+    "Preview your ad",
+    "Save",
   ];
   return (
     <Box>
-      <Stepper {...args}>
-        {useAlternativelabel
-          ? altenativeLabels.map((label) => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
-              </Step>
-            ))
-          : [...Array(steps).keys()].map((label) => {
-              const stepProps = {};
-              const labelProps = {};
+      {alternativeLabel ? (
+        <Stepper {...args} alternativeLabel>
+          {altenativeLabels.splice(0, steps).map((label) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+      ) : (
+        <Stepper {...args}>
+          {[...Array(steps).keys()].map((label) => {
+            const stepProps = {};
+            const labelProps = {};
 
-              return (
-                <Step key={label} {...stepProps}>
-                  <StepLabel {...labelProps}>{label}</StepLabel>
-                </Step>
-              );
-            })}
-      </Stepper>
+            return (
+              <Step key={label} {...stepProps}>
+                <StepLabel {...labelProps}>{label}</StepLabel>
+              </Step>
+            );
+          })}
+        </Stepper>
+      )}
     </Box>
   );
 };
