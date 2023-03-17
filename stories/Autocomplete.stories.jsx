@@ -6,15 +6,23 @@ export default {
   title: "Autocomplete",
   component: Autocomplete,
   argTypes: {
-    title: {
-      type: "string",
-      defaultValue: "Autocomplete",
-    },
     label: {
       type: "string",
       defaultValue: "Autocomplete",
     },
-    autoComplete: { type: "boolean", defaultValue: false}
+    size: {
+      type: "select",
+      options: ["small", "medium"],
+      defaultValue: "medium",
+    },
+    value: {
+      type: "string",
+      defaultValue: "The Godfather",
+    },
+    width: { description: "Width", type: "number", defaultValue: 300 },
+    autoComplete: { type: "boolean", defaultValue: false},
+    open: { type: "boolean", defaultValue: false},
+    disabled: { type: "boolean", defaultValue: false},
   },
 };
 
@@ -31,15 +39,11 @@ const top100Films = [
 export const Story = (args) => {
   return(
     <Autocomplete
-      autoComplete={args.autoComplete}
+      {...args}
       options={top100Films}
-      renderInput={(params) => <TextField {...params} label={args.label} />}
+      sx={{ width: args.width }}
+      renderInput={(params) =>
+        <TextField {...params} label={args.label}/>}
     />
   )
-}
-
-export const Autocomplete = Story.bind({});
-
-Autocomplete.args = {
-  title: "Autocomplete"
 };
