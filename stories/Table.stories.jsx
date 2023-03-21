@@ -25,7 +25,7 @@ export default {
   component: Table,
 };
 
-const Template = (args) => {
+const Default = (args) => {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -60,7 +60,7 @@ const Template = (args) => {
 }
 
 
-export const Basic = Template.bind({});
+export const Basic = Default.bind({});
 Basic.args = {
   primary: true,
   label: 'Button',
