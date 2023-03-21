@@ -6,23 +6,18 @@ export default {
   title: "Autocomplete",
   component: Autocomplete,
   argTypes: {
-    label: {
-      type: "string",
-      defaultValue: "Autocomplete",
-    },
+    label: { type: "string" },
     size: {
-      type: "select",
-      options: ["small", "medium"],
-      defaultValue: "medium",
+      control: {
+        type: "select",
+        options: ["small", "medium"],
+      }
     },
-    value: {
-      type: "string",
-      defaultValue: "The Godfather",
-    },
-    width: { description: "Width", type: "number", defaultValue: 300 },
-    autoComplete: { type: "boolean", defaultValue: false},
-    open: { type: "boolean", defaultValue: false},
-    disabled: { type: "boolean", defaultValue: false},
+    value: { type: "string" },
+    width: { description: "Width", type: "number" },
+    autoComplete: { type: "boolean" },
+    open: { type: "boolean" },
+    disabled: { type: "boolean" },
   },
 };
 
@@ -36,7 +31,7 @@ const top100Films = [
   { label: 'Pulp Fiction', year: 1994 },
 ];
 
-export const Story = (args) => {
+export const Default = (args) => {
   return(
     <Autocomplete
       {...args}
@@ -46,4 +41,14 @@ export const Story = (args) => {
         <TextField {...params} label={args.label}/>}
     />
   )
+};
+
+Default.args = {
+  label: "Autocomplete",
+  size: "medium",
+  value: "The Godfather",
+  width: 300,
+  autoComplete: false,
+  open: false,
+  disabled: false,
 };

@@ -5,40 +5,60 @@ export default {
   title: "Pagination",
   component: Pagination,
   argTypes: {
-    count: {type: "number", defaultValue: 11},
-    defaultPage: {type: "number", defaultValue: 6},
-    siblingCount: {type: "number", defaultValue: 0},
-    boundaryCount: {type: "number", defaultValue: 2},
+    count: { type: "number" },
+    defaultPage: { type: "number" },
+    siblingCount: { type: "number" },
+    boundaryCount: { type: "number" },
     variant: {
-      type: "select",
-      options: ["outlined", "text"],
-      defaultValue: "text",
+      control: {
+        type: "select",
+        options: ["outlined", "text"],
+      }
     },
     shape: {
-      type: "select",
-      options: ["circular", "rounded"],
-      defaultValue: "circular",
+      control: {
+        type: "select",
+        options: ["circular", "rounded"],
+      }
     },
     size: {
-      type: "select",
-      options: ["small", "medium", "large"],
-      defaultValue: "medium",
+      control: {
+        type: "select",
+        options: ["small", "medium", "large"],
+      }
     },
     color: {
-      type: "select",
-      options: ["primary", "secondary", "standard"],
-      defaultValue: "standard",
+      control: {
+        type: "select",
+        options: ["primary", "secondary", "standard"],
+      }
     },
-    showFirstButton: {type: "boolean", defaultValue: true},
-    showLastButton: {type: "boolean", defaultValue: true},
-    hidePrevButton: {type: "boolean", defaultValue: false},
-    hideNextButton: {type: "boolean", defaultValue: false},
-    disabled: {type: "boolean", defaultValue: false},
+    showFirstButton: { type: "boolean" },
+    showLastButton: { type: "boolean" },
+    hidePrevButton: { type: "boolean" },
+    hideNextButton: { type: "boolean" },
+    disabled: { type: "boolean" },
   }
 };
 
-export const Story = (args) => {
+export const Default = (args) => {
   return (
     <Pagination {...args}/>
   )
+};
+
+Default.args = {
+  count: 11,
+  defaultPage: 6,
+  siblingCount: 0,
+  boundaryCount: 2,
+  variant: "text",
+  shape: "circular",
+  size: "medium",
+  color: "standard",
+  showFirstButton: true,
+  showLastButton: true,
+  hidePrevButton: false,
+  hideNextButton: false,
+  disabled: false
 };

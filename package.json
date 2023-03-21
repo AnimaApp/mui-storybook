@@ -25,10 +25,12 @@
     "@storybook/addon-links": "^6.4.19",
     "@storybook/react": "^6.4.19",
     "@storybook/testing-library": "^0.0.9",
+    "anima-storybook-cli": "^0.9.0",
     "babel-loader": "^8.2.3"
   },
   "scripts": {
     "storybook": "start-storybook -p 6008",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "sync": "npm run build-storybook && anima-storybook sync"
   }
 }

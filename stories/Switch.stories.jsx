@@ -6,22 +6,31 @@ export default {
   component: Switch,
   argTypes: {
     size: {
-      type: "select",
-      options: ["small", "medium"],
-      defaultValue: "medium",
+      control: {
+        type: "select",
+        options: ["small", "medium"],
+      },
     },
     color: {
-      type: "select",
-      options: ['default', 'primary', 'secondary', 'error', 'info', 'success', 'warning'],
-      defaultValue: 'primary'
+      control: {
+        type: "select",
+        options: ['default', 'primary', 'secondary', 'error', 'info', 'success', 'warning'],
+      },
     },
-    defaultChecked: {type: "boolean", defaultValue: true},
-    disabled: {type: "boolean", defaultValue: false},
+    defaultChecked: { type: "boolean" },
+    disabled: { type: "boolean" },
   }
 };
 
-export const Story = (args) => {
+export const Default = (args) => {
   return (
     <Switch {...args}/>
   )
+}
+
+Default.args = {
+  size: "medium",
+  color: "primary",
+  defaultChecked: true,
+  disabled: true
 }

@@ -6,23 +6,32 @@ export default {
   title: "BottomNavigationAction",
   component: BottomNavigationAction,
   argTypes: {
-    label: {type: "string", defaultValue: "Navigation"},
-    showLabel: {type: "boolean", defaultValue: true},
-    value: {type: "string", defaultValue: "navigation"},
+    label: { type: "string" },
+    showLabel: { type: "boolean" },
+    value: { type: "string" },
     iconName: {
-      control: { type: "select" },
-      options: iconOptions,
-      description: "Icon",
-      transform: iconTransform,
-      required: false,
-      defaultValue: "RestoreIcon"
+      control: {
+        type: "select",
+        options: iconOptions,
+        description: "Icon",
+        transform: iconTransform,
+        required: false,
+      },
+
     },
   },
   decorators: [withIconMapped],
 };
 
-export const Story = (args) => {
+export const Default = (args) => {
   return (
     <BottomNavigationAction {...args} icon={args.iconName}/>
   )
+};
+
+Default.args = {
+  label: "Navigation",
+  value: "navigation",
+  showLabel: true,
+  iconName: "RestoreIcon"
 };

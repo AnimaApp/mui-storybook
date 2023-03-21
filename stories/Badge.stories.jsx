@@ -8,56 +8,49 @@ export default {
   title: "Badge",
   component: Badge,
   argTypes: {
-    badgeContent: {
-      type: "number",
-      defaultValue: 4,
-    },
-    max: {
-      type: "number",
-      defaultValue: 5,
-    },
+    badgeContent: { type: "number" },
+    max: { type: "number" },
     variant : {
-      type: "select",
-      options: ["dot", "standard"],
-      defaultValue: "standard",
+      control: {
+        type: "select",
+        options: ["dot", "standard"],
+      }
     },
     overlap : {
-      type: "select",
-      options: ["circular", "rectangular"],
-      defaultValue: "rectangular",
+      control: {
+        type: "select",
+        options: ["circular", "rectangular"],
+      }
     },
     color: {
-      type: "select",
-      options: ["default", "primary", "secondary", "error", "info", "success", "warning"],
-      defaultValue: "default",
+      control: {
+        type: "select",
+        options: ["default", "primary", "secondary", "error", "info", "success", "warning"],
+      }
     },
     vertical: {
-      type: "select",
-      options: ["top", "bottom"],
-      defaultValue: "top",
+      control: {
+        type: "select",
+        options: ["top", "bottom"],
+      }
     },
     horizontal: {
-      type: "select",
-      options: ["left", "right"],
-      defaultValue: "right",
-    },
-    iconName: {
-      control: { type: "select" },
-      options: iconOptions,
-      description: "Icon",
-      transform: iconTransform,
-      required: false,
+      control: {
+        type: "select",
+        options: ["left", "right"],
+      }
     },
     colorMail: {
-      type: "select",
-      options: ["inherit", "action", "disabled", "primary", "secondary", "error", "info", "success", "warning"],
-      defaultValue: "inherit",
+      control: {
+        type: "select",
+        options: ["inherit", "action", "disabled", "primary", "secondary", "error", "info", "success", "warning"],
+      }
     },
-    showZero: {type: "boolean", defaultValue: false},
+    showZero: { type: "boolean" },
   },
 };
 
-export const Mail = (args) => {
+export const Default = (args) => {
   return (
     <Badge
       {...args}
@@ -67,7 +60,18 @@ export const Mail = (args) => {
       }}
     >
       <MailIcon color={args.colorMail}/>
-      {/*<svg data-testid={args.iconName}></svg>*/}
     </Badge>
   );
+};
+
+Default.args = {
+  badgeContent: 4,
+  max: 5,
+  variant: "standard",
+  overlap: "rectangular",
+  color: "default",
+  vertical: "top",
+  horizontal: "right",
+  colorMail: "inherit",
+  showZero: false
 };

@@ -5,52 +5,44 @@ export default {
   title: "TextField",
   component: TextField,
   argTypes: {
-    label:{
-      type: "string",
-      defaultValue: "TextField"
-    },
-    defaultValue:{
-      type: "string",
-      defaultValue: "Text Field"
-    },
-    helperText:{
-      type: "string",
-      defaultValue: "Helper Text"
-    },
-    placeholder:{
-      type: "string",
-      defaultValue: "Placeholder"
-    },
+    label: { type: "string" },
+    defaultValue: { type: "string" },
+    helperText: { type: "string" },
+    placeholder: { type: "string" },
     variant: {
-      type: "select",
-      options: ["outlined", "filled", "standard"],
-      defaultValue: "outlined"
+      control: {
+        type: "select",
+        options: ["outlined", "filled", "standard"],
+      }
     },
     size: {
-      type: "select",
-      options: ["small", "medium"],
-      defaultValue: "medium",
+      control: {
+        type: "select",
+        options: ["small", "medium"],
+      }
     },
     color: {
-      type: "select",
-      options: ['default', 'primary', 'secondary', 'error', 'info', 'success', 'warning'],
-      defaultValue: 'primary'
+      control: {
+        type: "select",
+        options: ['default', 'primary', 'secondary', 'error', 'info', 'success', 'warning'],
+      }
     },
     type: {
-      type: "select",
-      options: ["default", "number", "search", "password", "file", "color", "date", "time"],
-      defaultValue: "outlined"
+      control: {
+        type: "select",
+        options: ["default", "number", "search", "password", "file", "color", "date", "time"],
+      }
     },
-    width: { description: "Width", type: "number", defaultValue: 300 },
-    required: {type: "boolean", defaultValue: false},
-    disabled: {type: "boolean", defaultValue: false},
-    readOnly: {type: "boolean", defaultValue: false},
-    shrink: {type: "boolean", defaultValue: false},
-    error: {type: "boolean", defaultValue: false},
+    width: { description: "Width", type: "number" },
+    required: { type: "boolean" },
+    disabled: { type: "boolean" },
+    readOnly: { type: "boolean" },
+    shrink: { type: "boolean" },
+    error: { type: "boolean" },
   }
 };
 
-export const Story = (args) => {
+export const Default = (args) => {
   return (
     <TextField
       {...args}
@@ -61,4 +53,21 @@ export const Story = (args) => {
       }}
     />
   )
-}
+};
+
+Default.args = {
+  label: "TextField",
+  defaultValue: "Text Field",
+  helperText: "Helper Text",
+  placeholder: "Placeholder",
+  variant: "outlined",
+  size: "medium",
+  color: "primary",
+  type: "outlined",
+  width: 300,
+  required: false,
+  disabled: false,
+  readOnly: false,
+  shrink: false,
+  error: false
+};

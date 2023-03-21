@@ -5,25 +5,27 @@ export default {
   title: "LinearProgress",
   component: LinearProgress,
   argTypes: {
-    width: { description: "Width", type: "number", defaultValue: 500 },
+    width: { description: "Width", type: "number" },
     color: {
-      type: "select",
-      options: ["inherit", "primary", "secondary", "error", "info", "success", "warning"],
-      defaultValue: "primary",
+      control: {
+        type: "select",
+        options: ["inherit", "primary", "secondary", "error", "info", "success", "warning"],
+      }
     },
     variant: {
-      type: "select",
-      options: ["buffer", "indeterminate", "determinate", "query"],
-      defaultValue: "indeterminate",
+      control: {
+        type: "select",
+        options: ["buffer", "indeterminate", "determinate", "query"],
+      }
     },
-    value: {type: "number", defaultValue: 10},
-    valueBuffer: {type: "number", defaultValue: 20},
-    size: {type: "number", defaultValue: 5},
-    borderRadius: {type: "number", defaultValue: 2},
+    value: { type: "number" },
+    valueBuffer: { type: "number" },
+    size: { type: "number" },
+    borderRadius: { type: "number" },
   }
 };
 
-export const Story = (args) => {
+export const Default = (args) => {
   return (
     <LinearProgress
       {...args}
@@ -34,4 +36,14 @@ export const Story = (args) => {
       }}
     />
   )
+};
+
+Default.args = {
+  width: 500,
+  color: "primary",
+  variant: "indeterminate",
+  value: 10,
+  valueBuffer: 20,
+  size: 5,
+  borderRadius: 2
 };

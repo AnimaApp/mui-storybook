@@ -9,42 +9,45 @@ export default {
   argTypes: {
     position: {type: "boolean"},
     size: {
-      type: "select",
-      options: ["small", "medium"],
-      defaultValue: "medium",
+      control: {
+        type: "select",
+        options: ["small", "medium"],
+      }
     },
     color: {
-      type: "select",
-      options: ['default', 'primary', 'secondary', 'error', 'info', 'success', 'warning'],
-      defaultValue: 'primary'
+      control: {
+        type: "select",
+        options: ['default', 'primary', 'secondary', 'error', 'info', 'success', 'warning'],
+      }
     },
     labelPlacement: {
-      type: "select",
-      options: ['default', 'top', 'start', 'bottom'],
-      defaultValue: 'default'
+      control: {
+        type: "select",
+        options: ['default', 'top', 'start', 'bottom'],
+      }
     },
     item: {
       type: "story",
       description: "item",
-      label: {type: "string", defaultValue: "Female"},
-      disabled: {type: "boolean"}
+      label: { type: "string" },
+      disabled: { type: "boolean" }
     },
     item2: {
       type: "story",
       description: "item",
-      label: {type: "string", defaultValue: "Male"},
-      disabled: {type: "boolean"}
+      label: { type: "string" },
+      disabled: { type: "boolean" }
     },
     item3: {
       type: "story",
       description: "item",
-      label: {type: "string", defaultValue: "Other"},
-      disabled: {type: "boolean"}
+      label: { type: "string" },
+      disabled: { type: "boolean" }
     },
   }
 };
 
-export const Story = (args) => {
+export const Default = (args) => {
   return (
     <RadioGroup
       aria-labelledby="demo-radio-buttons-group-label"
@@ -59,8 +62,12 @@ export const Story = (args) => {
   )
 }
 
-Story.args = {
+Default.args = {
   position: false,
+  size: "medium",
+  color: "primary",
+  labelPlacement: "default",
+
   item: {
     label: "Female",
     disabled: false

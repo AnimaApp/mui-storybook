@@ -6,24 +6,35 @@ export default {
   component: CircularProgress,
   argTypes: {
     color: {
-      type: "select",
-      options: ["inherit", "primary", "secondary", "error", "info", "success", "warning"],
-      defaultValue: "primary",
+      control: {
+        type: "select",
+        options: ["inherit", "primary", "secondary", "error", "info", "success", "warning"],
+      }
     },
     variant: {
-      type: "select",
-      options: ["determinate", "indeterminate"],
-      defaultValue: "indeterminate",
+      control: {
+        type: "select",
+        options: ["determinate", "indeterminate"],
+      }
     },
-    disableShrink: {type: "boolean", defaultValue: false},
-    size: {type: "number", defaultValue: 40},
-    thickness: {type: "number", defaultValue: 3.6},
-    value: {type: "number", defaultValue: 10},
+    disableShrink: { type: "boolean" },
+    size: { type: "number" },
+    thickness: { type: "number" },
+    value: { type: "number" },
   }
 };
 
-export const Story = (args) => {
+export const Default = (args) => {
   return (
     <CircularProgress {...args}/>
   )
+};
+
+Default.args = {
+  color: "primary",
+  variant: "indeterminate",
+  size: 40,
+  thickness: 3.6,
+  value: 10,
+  disableShrink: false
 };

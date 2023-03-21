@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Chip from '@mui/material/Chip';
 import Avatar from '@mui/material/Avatar';
-import FaceIcon from '@mui/icons-material/Face';
 import { iconOptions, iconTransform } from "../utils";
 import withIconMapped from "../decorators/withIconMapped";
 
@@ -9,40 +8,46 @@ export default {
   title: "Chip",
   component: Chip,
   argTypes: {
-    label: { type: "string", defaultValue: "Chip"},
+    label: { type: "string" },
     variant: {
-      type: "select",
-      options: ["filled", "outlined"]
+      control: {
+        type: "select",
+        options: ["filled", "outlined"],
+      }
     },
     size: {
-      type: "select",
-      options: ["medium", "small"],
-      defaultValue: "medium",
+      control: {
+        type: "select",
+        options: ["medium", "small"],
+      }
     },
     color: {
-      type: "select",
-      options: ["default", "primary", "secondary", "error", "info", "success", "warning"],
-      defaultValue: "default",
+      control: {
+        type: "select",
+        options: ["default", "primary", "secondary", "error", "info", "success", "warning"],
+      }
     },
-    disabled: {type: "boolean", defaultValue: false},
-    onClick: {type: "boolean", defaultValue: false},
-    onDelete: {type: "boolean", defaultValue: false},
-    icon: {type: "boolean", defaultValue: false},
+    disabled: { type: "boolean" },
+    onClick: { type: "boolean" },
+    onDelete: { type: "boolean" },
+    icon: { type: "boolean" },
     iconName: {
-      control: { type: "select" },
-      options: iconOptions,
-      description: "Icon",
-      transform: iconTransform,
-      required: false,
+      control: {
+        type: "select",
+        options: iconOptions,
+        description: "Icon",
+        transform: iconTransform,
+        required: false,
+      },
     },
-    avatar: {type: "boolean", defaultValue: false},
-    avatarText: {type: "text", defaultValue: "C"},
-    srcAvatar: {type: "text", defaultValue: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250"},
+    avatar: { type: "boolean" },
+    avatarText: { type: "text" },
+    srcAvatar: { type: "text" },
   },
   decorators: [withIconMapped],
 };
 
-export const Story = (args) => {
+export const Default = (args) => {
   return (
     <Chip
       {...args}
@@ -54,3 +59,18 @@ export const Story = (args) => {
     />
   )
 }
+
+Default.args = {
+  label: "Chip",
+  variant: "outlined",
+  size: "medium",
+  color: "default",
+  icon: false,
+  iconName: "RestoreIcon",
+  avatar: false,
+  avatarText: "T",
+  srcAvatar: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
+  disabled: false,
+  onClick: false,
+  onDelete: false
+};

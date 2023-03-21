@@ -10,14 +10,14 @@ export default {
   title: "Accordion",
   component: Accordion,
   argTypes: {
-    title: {type: "string", defaultValue: "Accordion"},
-    description: {type: "string", defaultValue: "Description"},
-    width: {type:"number", defaultValue: 500},
-    disabled: {type:"boolean", defaultValue: false},
+    title: { type: "string" },
+    description: { type: "string" },
+    width: { type:"number" },
+    disabled: { type:"boolean" },
   }
 };
 
-export const Story = (args) => {
+export const Default = (args) => {
   return (
     <Box>
       <Accordion
@@ -40,4 +40,11 @@ export const Story = (args) => {
     </Box>
 
   )
+};
+
+Default.args = {
+  title: "Accordion",
+  description: "Description",
+  width: 500,
+  disabled: false,
 };

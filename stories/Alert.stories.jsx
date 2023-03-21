@@ -10,41 +10,42 @@ export default {
   title: "Alert",
   component: Alert,
   argTypes: {
-    text: {
-      type: "string",
-      defaultValue: "Alert string"
-    },
-    title: {
-      type: "string",
-      defaultValue: "Alert"
-    },
-    width: { description: "Width", type: "number", defaultValue: 500 },
+    text: { type: "string" },
+    title: { type: "string" },
+    width: { description: "Width", type: "number" },
     severity: {
-      type: "select",
-      options: ["error", "warning", "info", "success"]
+      control: {
+        type: "select",
+        options: ["error", "warning", "info", "success"]
+      }
     },
     variant: {
-      type: "select",
-      options: ["standard", "filled", "outlined"],
+      control: {
+        type: "select",
+        options: ["standard", "filled", "outlined"],
+      }
     },
     color: {
-      type: "select",
-      options: ['info', 'success', 'warning', "error"],
-      defaultValue: 'primary'
+      control: {
+        type: "select",
+        options: ['info', 'success', 'warning', "error"],
+      }
     },
     iconName: {
-      control: { type: "select" },
-      options: iconOptions,
-      description: "Icon",
-      transform: iconTransform,
-      required: false,
+      control: {
+        type: "select",
+        options: iconOptions,
+        description: "Icon",
+        transform: iconTransform,
+        required: false,
+      },
     },
-    close: {type: "boolean", defaultValue: false},
+    close: { type: "boolean" },
   },
   decorators: [withIconMapped],
 };
 
-export const Story = (args) => {
+export const Default = (args) => {
   const [open, setOpen] = React.useState(true);
 
   return (
@@ -69,4 +70,14 @@ export const Story = (args) => {
       {args.text}
     </Alert>
   )
-}
+};
+
+Default.args = {
+  text: "Alert string",
+  title: "Alert",
+  width: 500,
+  severity: "success",
+  variant: "standard",
+  color: "primary",
+  close: false
+};

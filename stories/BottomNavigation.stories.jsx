@@ -12,20 +12,12 @@ export default {
   title: "BottomNavigation",
   component: BottomNavigation,
   argTypes: {
-    showLabels: {type: "boolean"},
-    iconName: {
-      control: { type: "select" },
-      options: iconOptions,
-      description: "Icon",
-      transform: iconTransform,
-      required: false,
-    },
+    showLabels: { type: "boolean" },
   },
-  decorators: [withIconMapped],
 };
 
 
-export const Story = (args) => {
+export const Default = (args) => {
   const [value, setValue] = React.useState(0);
 
   return (
@@ -44,7 +36,7 @@ export const Story = (args) => {
   )
 };
 
-Story.args = {
+Default.args = {
   showLabels: false,
   item: {
     label: "Recents",
@@ -66,5 +58,5 @@ Story.args = {
     showLabel: "true",
     icon: <FolderIcon />
   },
-}
+};
 

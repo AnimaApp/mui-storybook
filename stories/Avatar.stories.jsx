@@ -5,18 +5,19 @@ export default {
   title: "Avatar",
   component: Avatar,
   argTypes: {
-    size: { description: "Size", type: "number", defaultValue: 50 },
-    src: { description: "src", type: "string", defaultValue: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250" },
-    alt: { description: "src", type: "string", defaultValue: "Hello" },
+    size: { description: "Size", type: "number" },
+    src: { description: "src", type: "string" },
+    alt: { description: "src", type: "string" },
     variant: {
-      type: "select",
-      options: ["circular", "rounded", "square"],
-      defaultValue: "circular"
+      control: {
+        type: "select",
+        options: ["circular", "rounded", "square"],
+      }
     }
   },
 };
 
-export const Story = (args) => {
+export const Default = (args) => {
   return (
     <Avatar
       {...args}
@@ -26,4 +27,11 @@ export const Story = (args) => {
       }}
     />
   )
-}
+};
+
+Default.args = {
+  size: 50,
+  src: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
+  alt: "Avatar",
+  variant: "circular"
+};

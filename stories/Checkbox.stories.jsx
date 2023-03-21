@@ -6,23 +6,31 @@ export default {
   component: Checkbox,
   argTypes: {
     size: {
-      type: "select",
-      options: ["small", "medium"],
-      defaultValue: "medium",
+      control: {
+        type: "select",
+        options: ["small", "medium"],
+      }
     },
     color: {
-      type: "select",
-      options: ['default', 'primary', 'secondary', 'error', 'info', 'success', 'warning'],
-      defaultValue: 'primary'
+      control: {
+        type: "select",
+        options: ['default', 'primary', 'secondary', 'error', 'info', 'success', 'warning'],
+      }
     },
-    disabled: { type: "boolean", defaultValue: false},
+    disabled: { type: "boolean" },
   }
 };
 
-export const Story = (args) => {
+export const Default = (args) => {
   return (
     <Checkbox
       {...args}
     />
   )
-}
+};
+
+Default.args = {
+  size: "medium",
+  color: "primary",
+  disabled: false
+};
